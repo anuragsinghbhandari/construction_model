@@ -1,6 +1,6 @@
 # construction_model
 creating a construction model to predict how is the construction going on.
-+____________________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________________
 No need to do anything with Training_construction_model.ipynb as it is only there to show you how the model was trained and saved.
 Note : you can play with colab notebook to practice
 _____________________________________________________________________________________________________________________________________________
