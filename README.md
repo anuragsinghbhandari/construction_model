@@ -9,7 +9,7 @@ Instructions to predict the image
 2. go to Construction_model directory by writing cd Construction_model in terminal
 3. Install the required modules by writing pip install -r requriements.txt in the terminal
 4. now copy the path of any image you want to predict
-5. inside the model.py at line no. 48 paste the path
+5. inside the model.py at line no. 48 paste the image path
 6. then save the file
 7. in terminal write python model.py
 8. See the output
