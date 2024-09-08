@@ -1,10 +1,26 @@
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
-import matplotlib as plt
-# Load the saved model
-model = tf.keras.models.load_model('cnn_model.h5')
+import matplotlib.pyplot as plt
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 
+
+model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)),
+    MaxPooling2D(pool_size=(2, 2)),
+    Conv2D(64, (3, 3), activation='relu'),
+    MaxPooling2D(pool_size=(2, 2)),
+    Conv2D(128, (3, 3), activation='relu'),
+    MaxPooling2D(pool_size=(2, 2)),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dropout(0.5),
+    Dense(4, activation='sigmoid')  # 4 output units for multi-label classification
+])
+
+# Load the saved model
+model.load_weights('cnn_model.h5')
 # Load and preprocess the image
 def preprocess_image(img_path):
     img = image.load_img(img_path, target_size=(128, 128))  # Resize the image
@@ -41,9 +57,9 @@ def show_image_with_prediction(img_path, prediction_result):
     plt.show()
 
 
-def predictimg(img_path):
+def predict_img(img_path):
   prediction_result = predict_image(img_path)
   show_image_with_prediction(img_path, prediction_result)
 
-img_path = 'path_to_new_image.jpg'
-predict_image(img_path)
+img_path = 'test3.jfif'
+predict_img(img_path)
